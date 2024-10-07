@@ -31,10 +31,12 @@ const OAuthCallback = () => {
           const { channelId, channelTitle, tokenURI } = response.data;
           setChannelInfo({ channelId, channelTitle });
           setTokenURI(tokenURI);
+          console.log("token datanya apa njign", response.data);
         })
         .catch((err) => {
           setError("Failed to fetch channel information or generate proof.");
           console.error(err);
+          console.log(err);
         });
     } else {
       setError("No authorization code provided.");
