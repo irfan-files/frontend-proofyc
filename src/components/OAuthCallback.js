@@ -11,50 +11,33 @@ const OAuthCallback = () => {
   const [mintedTokenId, setMintedTokenId] = useState(null);
   const location = useLocation();
 
-  // Function to extract query parameters from the URL
-  const getQueryParams = (queryString) => {
-    return new URLSearchParams(queryString);
-  };
-
   useEffect(() => {
-    const queryParams = getQueryParams(location.search);
-    const code = queryParams.get("code");
+    const queryParams = new URLSearchParams(location.search);
+    const accessToken = queryParams.get("access_token");
+    const channelId = queryParams.get("channel_id");
+    const tokenURI = queryParams.get("token_uri");
+    const channelTitle = queryParams.get("channel_title");
+    const proofDataIdentifier = queryParams.get("proof_data_identifier");
 
-    if (code) {
-      // Send the authorization code to the backend for verification and proof generation
-      axios
-        .get(`${process.env.REACT_APP_BACKEND_URL}/oauth2callback`, {
-          params: { code },
-        })
-        .then((response) => {
-          const { channelId, channelTitle, tokenURI } = response.data;
+    console.log("Query Parameters:", {
+      accessToken,
+      channelId,
+      tokenURI,
+      channelTitle,
+      proofDataIdentifier,
+    });
 
-          // Send the parameters to the backend for metadata creation
-          axios
-            .post(`${process.env.REACT_APP_BACKEND_URL}/createmetadata`, {
-              channelId,
-              channelTitle,
-              tokenURI,
-            })
-            .then((res) => {
-              setChannelInfo({
-                channelId: res.data.channelId,
-                channelTitle: res.data.channelTitle,
-              });
-              setTokenURI(res.data.tokenURI);
-              console.log("Channel Info and Token URI:", res.data);
-            })
-            .catch((err) => {
-              setError("Failed to create metadata.");
-              console.error("Error during metadata creation:", err);
-            });
-        })
-        .catch((err) => {
-          setError("Failed to fetch channel information or generate proof.");
-          console.error(err);
-        });
+    if (
+      accessToken &&
+      channelId &&
+      tokenURI &&
+      channelTitle &&
+      proofDataIdentifier
+    ) {
+      setChannelInfo({ channelId, channelTitle, proofDataIdentifier });
+      setTokenURI(tokenURI);
     } else {
-      setError("No authorization code provided.");
+      setError("Required query parameters are missing.");
     }
   }, [location]);
 
@@ -62,8 +45,8 @@ const OAuthCallback = () => {
     return <div className="text-red-500">{error}</div>;
   }
 
-  if (!channelInfo || !tokenURI) {
-    return <div>Loading...</div>;
+  if (!channelInfo) {
+    return <div>Loading...</div>; // Loading state until channelInfo is available
   }
 
   return (
@@ -75,13 +58,21 @@ const OAuthCallback = () => {
       <p>
         <strong>Channel Name:</strong> {channelInfo.channelTitle}
       </p>
+      <p>
+        <strong>Proof Data Identifier:</strong>{" "}
+        {channelInfo.proofDataIdentifier}
+      </p>
+      <p>
+        <strong>Token URI:</strong> {tokenURI}
+      </p>
 
       {!mintedTokenId ? (
         <MintNFTButton
           channelId={channelInfo.channelId}
           channelTitle={channelInfo.channelTitle}
           tokenURI={tokenURI}
-          onMinted={(tokenId) => setMintedTokenId(tokenId)} // Capture the minted tokenId
+          proofDataIdentifier={channelInfo.proofDataIdentifier}
+          onMinted={(tokenId) => setMintedTokenId(tokenId)}
         />
       ) : (
         <DisplayNFT tokenId={mintedTokenId} />
@@ -89,5 +80,4 @@ const OAuthCallback = () => {
     </div>
   );
 };
-
 export default OAuthCallback;

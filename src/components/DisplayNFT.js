@@ -9,16 +9,22 @@ const DisplayNFT = ({ tokenId }) => {
   useEffect(() => {
     const fetchMetadata = async () => {
       try {
+        // Check if MetaMask is installed
         if (!window.ethereum) {
-          alert("MetaMask is not installed!");
-          return;
+          throw new Error("MetaMask is not installed!");
         }
 
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
+
+        // Validate contract address
+        if (!contractAddress) {
+          throw new Error("Contract address is not defined.");
+        }
+
         const contract = new ethers.Contract(
           contractAddress,
-          HealthyFoodABI.abi,
+          HealthyFoodABI,
           provider
         );
 
@@ -26,21 +32,21 @@ const DisplayNFT = ({ tokenId }) => {
         const tokenURI = await contract.tokenURI(tokenId);
         console.log("Token URI:", tokenURI);
 
-        let metadataURL = tokenURI;
+        // Convert IPFS URI if necessary
+        const metadataURL = tokenURI.startsWith("ipfs://")
+          ? `https://gateway.pinata.cloud/ipfs/${tokenURI.split("ipfs://")[1]}`
+          : tokenURI;
 
-        // If using IPFS gateway
-        if (tokenURI.startsWith("ipfs://")) {
-          metadataURL = `https://gateway.pinata.cloud/ipfs/${
-            tokenURI.split("ipfs://")[1]
-          }`;
-        }
-
+        // Fetch metadata
         const response = await fetch(metadataURL);
+        if (!response.ok) {
+          throw new Error("Failed to fetch metadata.");
+        }
         const data = await response.json();
         setMetadata(data);
       } catch (err) {
         console.error("Error fetching metadata:", err);
-        setError("Failed to fetch NFT metadata.");
+        setError(err.message || "Failed to fetch NFT metadata.");
       }
     };
 
@@ -71,7 +77,7 @@ const DisplayNFT = ({ tokenId }) => {
       <p>
         <strong>Description:</strong> {metadata.description}
       </p>
-      {metadata.attributes && (
+      {metadata.attributes?.length > 0 && (
         <div className="mt-2">
           <strong>Attributes:</strong>
           <ul>
