@@ -1,4 +1,3 @@
-// src/components/OAuthCallback.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
@@ -29,14 +28,30 @@ const OAuthCallback = () => {
         })
         .then((response) => {
           const { channelId, channelTitle, tokenURI } = response.data;
-          setChannelInfo({ channelId, channelTitle });
-          setTokenURI(tokenURI);
-          console.log("token datanya apa njign", response.data);
+
+          // Send the parameters to the backend for metadata creation
+          axios
+            .post(`${process.env.REACT_APP_BACKEND_URL}/createmetadata`, {
+              channelId,
+              channelTitle,
+              tokenURI,
+            })
+            .then((res) => {
+              setChannelInfo({
+                channelId: res.data.channelId,
+                channelTitle: res.data.channelTitle,
+              });
+              setTokenURI(res.data.tokenURI);
+              console.log("Channel Info and Token URI:", res.data);
+            })
+            .catch((err) => {
+              setError("Failed to create metadata.");
+              console.error("Error during metadata creation:", err);
+            });
         })
         .catch((err) => {
           setError("Failed to fetch channel information or generate proof.");
           console.error(err);
-          console.log(err);
         });
     } else {
       setError("No authorization code provided.");
@@ -66,7 +81,7 @@ const OAuthCallback = () => {
           channelId={channelInfo.channelId}
           channelTitle={channelInfo.channelTitle}
           tokenURI={tokenURI}
-          onMinted={(tokenId) => setMintedTokenId(tokenId)}
+          onMinted={(tokenId) => setMintedTokenId(tokenId)} // Capture the minted tokenId
         />
       ) : (
         <DisplayNFT tokenId={mintedTokenId} />

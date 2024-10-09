@@ -1,4 +1,3 @@
-// src/components/MintNFTButton.js
 import React, { useState } from "react";
 import { ethers } from "ethers";
 import HealthyFoodABI from "../HealthyFood.json"; // Adjust the path if necessary
@@ -32,8 +31,8 @@ const MintNFTButton = ({ channelId, channelTitle, tokenURI, onMinted }) => {
         signer
       );
 
-      // Call the mint function
-      const tx = await contract.mint(tokenURI);
+      // Call the mint function on the contract with tokenURI
+      const tx = await contract.mint(tokenURI); // Send tokenURI to mint function
       setTxHash(tx.hash);
       console.log("Transaction sent: ", tx.hash);
 
@@ -45,7 +44,7 @@ const MintNFTButton = ({ channelId, channelTitle, tokenURI, onMinted }) => {
       const event = receipt.events.find((event) => event.event === "Minted");
       const tokenId = event.args.tokenId.toString();
 
-      onMinted(tokenId);
+      onMinted(tokenId); // Pass the minted tokenId to the parent component
     } catch (err) {
       console.error("Error minting NFT:", err);
       setError("Failed to mint NFT.");
