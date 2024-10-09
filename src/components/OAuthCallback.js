@@ -18,6 +18,7 @@ const OAuthCallback = () => {
     const tokenURI = queryParams.get("token_uri");
     const channelTitle = queryParams.get("channel_title");
     const proofDataIdentifier = queryParams.get("proof_data_identifier");
+    const proofData = queryParams.get("proof_claimInfo");
 
     console.log("Query Parameters:", {
       accessToken,
@@ -25,16 +26,29 @@ const OAuthCallback = () => {
       tokenURI,
       channelTitle,
       proofDataIdentifier,
+      proofData,
     });
+
+    const proofDataJSON = JSON.stringify(proofData);
+    console.log("isi proof data JSON:", proofDataJSON);
+
+    console.log("isi proof data", proofData);
 
     if (
       accessToken &&
       channelId &&
       tokenURI &&
       channelTitle &&
-      proofDataIdentifier
+      proofDataIdentifier &&
+      proofData
     ) {
-      setChannelInfo({ channelId, channelTitle, proofDataIdentifier });
+      setChannelInfo({
+        channelId,
+        channelTitle,
+        proofDataIdentifier,
+        proofData,
+        proofDataJSON,
+      });
       setTokenURI(tokenURI);
     } else {
       setError("Required query parameters are missing.");
@@ -64,6 +78,10 @@ const OAuthCallback = () => {
       </p>
       <p>
         <strong>Token URI:</strong> {tokenURI}
+      </p>
+
+      <p>
+        <strong>proof claim info: </strong> {channelInfo.proofDataJSON}
       </p>
 
       {!mintedTokenId ? (

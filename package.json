@@ -11,6 +11,7 @@
     "@thirdweb-dev/sdk": "^4.0.99",
     "axios": "^1.7.7",
     "buffer": "^6.0.3",
+    "ethers": "^6.13.3",
     "react": "^18.3.1",
     "react-app-rewired": "^2.2.1",
     "react-dom": "^18.3.1",

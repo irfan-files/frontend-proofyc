@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { ethers } from "ethers";
+import { ethers, JsonRpcProvider } from "ethers"; // Import JsonRpcProvider directly
+
 import HealthyFoodABI from "../HealthyFood.json"; // Adjust the path if necessary
 
 const DisplayNFT = ({ tokenId }) => {
@@ -14,7 +15,8 @@ const DisplayNFT = ({ tokenId }) => {
           throw new Error("MetaMask is not installed!");
         }
 
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const provider = new JsonRpcProvider(window.ethereum); // Use JsonRpcProvider directly
+
         const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 
         // Validate contract address
