@@ -6,7 +6,7 @@ import InfoSection from "../components/InfoSection";
 import HowItWorks from "../components/HowItWorks";
 import Gallery from "../components/Gallery";
 
-const Index = () => {
+const LandingPage = () => {
   return (
     <div>
       <Hero />
@@ -18,4 +18,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default LandingPage;

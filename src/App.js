@@ -8,7 +8,7 @@ import { config } from "./config/wagmi.tsx";
 import OAuthCallback from "./components/OAuthCallback";
 import ConnectWalletButton from "./components/ConnectWalletButton";
 import Header from "./components/Header.js";
-import Index from "./pages/LandingPage.js";
+import LandingPage from "./pages/LandingPage.js";
 import Footer from "./components/Footer.js";
 
 const queryClient = new QueryClient();
@@ -21,7 +21,7 @@ function App() {
           <Header />
           <div>
             <Routes>
-              <Route path="/" element={<Index />} />
+              <Route path="/" element={<LandingPage />} />
               {/* // <Route path="/" element={<ConnectWalletButton />} /> */}
               <Route path="/oauth2callback" element={<OAuthCallback />} />
             </Routes>
