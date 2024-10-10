@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { ethers, JsonRpcProvider } from "ethers"; // Import JsonRpcProvider directly
-
-import HealthyFoodABI from "../HealthyFood.json"; // Adjust the path if necessary
+import { ethers } from "ethers";
+import abi from "../abiMintingAccount.json"; // Adjust the path if necessary
 
 const DisplayNFT = ({ tokenId }) => {
   const [metadata, setMetadata] = useState(null);
@@ -26,7 +25,7 @@ const DisplayNFT = ({ tokenId }) => {
 
         const contract = new ethers.Contract(
           contractAddress,
-          HealthyFoodABI,
+          abi.abi,
           provider
         );
 

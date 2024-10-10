@@ -1,7 +1,7 @@
 import { http, cookieStorage, createConfig, createStorage } from 'wagmi'
 import { baseSepolia } from 'wagmi/chains'
 // import { publicProvider } from 'wagmi/provider/public'
-import { coinbaseWallet } from 'wagmi/connectors'
+import { coinbaseWallet, injected } from 'wagmi/connectors'
 
 // const { chains, publicClient, webSocketPublicClient } = configureChains(
 //   [baseSepolia],
@@ -11,6 +11,7 @@ import { coinbaseWallet } from 'wagmi/connectors'
 export const config = createConfig({
   chains: [baseSepolia],
     connectors: [
+      // injected(),
       coinbaseWallet({
         appName: 'youtube-proof',
         preference: 'all', 

@@ -10,6 +10,7 @@ function ConnectWalletButton() {
     const { address, isConnected } = useAccount()
     const chainId = useChainId()
     const coinbaseConnector = connectors.find(connector => connector.name === 'Coinbase Wallet')
+    const metamaskConnector = connectors.find(connector => connector.name === 'MetaMask')
 
     const REQUIRED_CHAIN = baseSepolia
 
