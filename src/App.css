@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+
+.custom-footer {
+  background-color: #1a202c; /* Override the footer background */
+  position: sticky; /* Example if you wanted it sticky */
+  bottom: 0;
+  z-index: 10; /* Make sure it's above other elements */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

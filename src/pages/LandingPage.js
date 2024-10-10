@@ -1,19 +1,14 @@
 import React from "react";
-
-import Hero from "../components/Hero";
-import CallToAction from "../components/CallToAction";
-import InfoSection from "../components/InfoSection";
-import HowItWorks from "../components/HowItWorks";
-import Gallery from "../components/Gallery";
+import MainContent from "../components/pagesComponents/MainContent";
+import ImageSection from "../components/pagesComponents/ImageSection";
+import Web3Section from "../components/pagesComponents/Web3Section";
 
 const LandingPage = () => {
   return (
     <div>
-      <Hero />
-      <CallToAction />
-      <InfoSection />
-      <HowItWorks />
-      <Gallery />
+      <MainContent />
+      <ImageSection />
+      <Web3Section />
     </div>
   );
 };

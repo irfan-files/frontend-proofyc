@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import MintNFTButton from "./MintNFTButton";
-import DisplayNFT from "./DisplayNFT";
+import MintNFTButton from "../components/MintNFTButton";
+import DisplayNFT from "../components/DisplayNFT";
 
 const OAuthCallback = () => {
   const [channelInfo, setChannelInfo] = useState(null);
@@ -29,25 +29,25 @@ const OAuthCallback = () => {
     const proofSignature = queryParams.get("signature");
 
     const claimInfo = {
-      context:proofContext,
-      parameters:proofParameters,
-      provider:proofProvider,
-    }
+      context: proofContext,
+      parameters: proofParameters,
+      provider: proofProvider,
+    };
 
     const signedClaim = {
-      claim:{
-        epoch:proofEpoch,
-        identifier:proofIdentifier,
-        owner:proofOwner,
-        timestampS:proofTimestamps
+      claim: {
+        epoch: proofEpoch,
+        identifier: proofIdentifier,
+        owner: proofOwner,
+        timestampS: proofTimestamps,
       },
-      signatures: [proofSignature]
-    }
+      signatures: [proofSignature],
+    };
 
     const proofSend = {
       claimInfo: claimInfo,
-      signedClaim: signedClaim
-    }
+      signedClaim: signedClaim,
+    };
 
     if (
       accessToken &&
@@ -83,18 +83,14 @@ const OAuthCallback = () => {
         <strong>Channel Name:</strong> {channelInfo.channelTitle}
       </p>
       <p>
-        <strong>Proof Data Identifier:</strong>{" "}
-        {channelInfo.proofIdentifier}
+        <strong>Proof Data Identifier:</strong> {channelInfo.proofIdentifier}
       </p>
       <p>
         <strong>Token URI:</strong> {tokenURI}
       </p>
 
       {!mintedTokenId ? (
-        <MintNFTButton
-          proofData={proofDataObject}
-          tokenURI={tokenURI}
-        />
+        <MintNFTButton proofData={proofDataObject} tokenURI={tokenURI} />
       ) : (
         <DisplayNFT tokenId={mintedTokenId} />
       )}

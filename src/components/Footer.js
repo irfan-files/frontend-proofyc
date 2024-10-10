@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 py-8 font-coinbase">
+    <footer className="relative bg-gray-900 py-8 font-coinbase sticky bottom-0">
       <div className="max-w-7xl mx-auto text-center">
         <img
           className="mx-auto mb-4"
