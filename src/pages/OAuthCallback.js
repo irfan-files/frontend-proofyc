@@ -92,7 +92,14 @@ const OAuthCallback = () => {
         </header>
         <main class="flex overflow-hidden flex-wrap gap-10 px-8 py-12 w-full max-md:px-5 max-md:max-w-full">
           <div class="flex flex-col gap-12 items-center self-start bg-gray-100 rounded-lg min-w-[240px] w-[375px]">
-            <ProfileCard class="object-contain max-w-full rounded-3xl aspect-[0.78] w-[375px]" />
+            <ProfileCard
+              channelName={channelInfo.channelTitle}
+              channelId={channelInfo.channelId}
+              channelSubs="1.6M" // Dummy data, replace with actual if available
+              videoViews="212M" // Dummy data, replace with actual if available
+              country="Indonesia" // Dummy data, replace with actual if available
+              accountCreated="Nov 29, 2019" // Dummy data, replace with actual if available
+            />
           </div>
           <div class="flex flex-col flex-1 shrink justify-center basis-0 min-w-[240px] max-md:max-w-full">
             <div class="flex flex-col w-full max-md:max-w-full">

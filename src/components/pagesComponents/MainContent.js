@@ -1,4 +1,5 @@
 import React from "react";
+import { TypeAnimation } from "react-type-animation";
 
 const handleLogin = () => {
   // Redirect user to the backend to initiate Google OAuth2 flow
@@ -13,7 +14,21 @@ const MainContent = () => {
             MINT YOUR YOUTUBE CHANNEL ON THE BLOCKCHAIN
           </p>
           <h1 className="text-white text-5xl font-bold mb-4">
-            PROVE YOUR OWNERSHIP,
+            <TypeAnimation
+              sequence={[
+                "PROVE YOUR OWNERSHIP,", // Types 'One'
+                1000, // Waits 1s
+                "", // Deletes 'One' and types 'Two'
+                // Types 'Three' without deleting 'Two'
+                () => {
+                  console.log("Sequence completed");
+                },
+              ]}
+              wrapper="span"
+              cursor={true}
+              repeat={Infinity}
+              style={{ fontSize: "1em", display: "inline-block" }}
+            />
           </h1>
           <h1 className="text-white text-5xl font-bold mb-4">
             UNLOCK YOUR <span className="text-lime-500">WEB3</span>
@@ -52,7 +67,7 @@ const MainContent = () => {
               onClick={handleLogin}
               className="px-6 py-3 bg-lime-500 text-gray-900 rounded-full flex items-center space-x-2"
             >
-              <span>Explore</span>
+              <span>Mint Now</span>
               <i className="fas fa-arrow-right"></i>
             </button>
           </div>

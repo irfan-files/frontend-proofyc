@@ -1,15 +1,13 @@
 import React from "react";
 
-// const dataCard = {
-//   channelName,
-//   channelId,
-//   channelSubs,
-//   videoViews,
-//   country,
-//   accountCreated,
-// };
-
-const ProfileCard = () => {
+const ProfileCard = ({
+  channelName,
+  channelId,
+  channelSubs,
+  videoViews,
+  country,
+  accountCreated,
+}) => {
   return (
     <div className="w-[375px] h-[573px] bg-black rounded-[14px] shadow flex-col justify-start items-start inline-flex font-coinbase animate-float">
       <div className="self-stretch h-[573px] pb-[38px] flex-col justify-start items-center gap-8 flex">
@@ -35,7 +33,7 @@ const ProfileCard = () => {
                 </div>
                 <div className="self-stretch flex-col justify-start items-center flex">
                   <div className="text-center text-[#bfff00] text-[32px] font-black uppercase leading-tight">
-                    FUFUFARAH
+                    {channelName}
                   </div>
                   <div className="text-center mt-1 text-base font-medium text-gray-300">
                     channel name
@@ -53,7 +51,7 @@ const ProfileCard = () => {
               </div>
               <div className="justify-start items-center gap-2 inline-flex">
                 <div className="text-[#bfff00] text-lg font-semibold leading-7">
-                  1.6M
+                  {channelSubs}
                 </div>
               </div>
             </div>
@@ -63,7 +61,7 @@ const ProfileCard = () => {
               </div>
               <div className="justify-start items-center gap-2 inline-flex">
                 <div className="text-center text-[#bfff00] text-lg font-semibold leading-7">
-                  212M
+                  {videoViews}
                 </div>
               </div>
             </div>
@@ -77,18 +75,18 @@ const ProfileCard = () => {
                 <div className="self-stretch justify-start items-center gap-2 flex">
                   <div className="w-5 h-5 relative"></div>
                   <div className="text-[#bfff00] text-lg font-semibold leading-7">
-                    Indonesia
+                    {country}
                   </div>
                 </div>
               </div>
             </div>
             <div className="w-32 flex-col justify-start items-center gap-1 inline-flex">
               <div className="self-stretch text-center text-[#eaecf0] text-xs font-medium capitalize leading-tight">
-                Channel Id
+                Account Created
               </div>
               <div className="justify-start items-center gap-2 inline-flex">
                 <div className="text-[#bfff00] text-lg font-semibold leading-7">
-                  Nov 29, 2019
+                  {accountCreated}
                 </div>
               </div>
             </div>
