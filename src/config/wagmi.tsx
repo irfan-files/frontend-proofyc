@@ -5,7 +5,6 @@ import { coinbaseWallet, injected } from 'wagmi/connectors'
 export const config = createConfig({
   chains: [baseSepolia],
     connectors: [
-      injected(),
       coinbaseWallet({
         appName: 'youtube-proof',
         preference: 'all', 
