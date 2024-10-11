@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useWallet } from "./UseWallet"; // Adjust the path to your custom hook
 import WalletModal from "./WalletModal"; // Adjust the path to the modal component
-import { useAccount, useEnsName } from "wagmi";
+import { Basenames } from "./GetBasename";
+import { useAccount  } from "wagmi";
+
 
 const Header = () => {
   const {
@@ -14,12 +16,8 @@ const Header = () => {
   } = useWallet();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const account = useAccount();
 
-  // const { address, isConnected } = useAccount();
-  const { data: ensName } = useEnsName({ address });
-  const basename = ensName || address;
-
-  console.log("BASENAME", basename);
 
   // Modal control functions
   const openModal = () => setIsModalOpen(true);
@@ -28,6 +26,7 @@ const Header = () => {
   // Render wallet button based on connection state
   const renderWalletButton = () => {
     if (isConnected) {
+      // const basename = Basenames(account.addresses?.[0]) 
       return (
         <>
           <button
@@ -36,7 +35,10 @@ const Header = () => {
           >
             Disconnect
           </button>
-          <p className="text-white font-semibold">{basename}</p>
+          {/* <p className="text-white font-semibold">{basename}</p> */}
+          <div>
+                <Basenames address={account.addresses?.[0]} />
+              </div>
         </>
       );
     }
