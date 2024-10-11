@@ -1,0 +1,50 @@
+/* styles.css */
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.background-image {
+  background-image: url('https://images.stockcake.com/public/5/2/2/522dd699-ee2d-4c52-b22c-1351002a5e83_large/vlogger-giving-thumbs-up-stockcake.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.content {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.button {
+  background-color: #ccff00;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.privacy-policy {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.privacy-policy a {
+  color: #cccccc;
+  text-decoration: underline;
+}

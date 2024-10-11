@@ -7,6 +7,7 @@ import Web3SectionTwo from "../components/pagesComponents/Web3SectionTwo";
 import Web3SectionThree from "../components/pagesComponents/Web3SectionThree";
 import HowItWorks from "../components/pagesComponents/HowItWorks";
 import RoadmapSection from "../components/pagesComponents/RoadmapSection";
+import ClaimOwnershipSection from "../components/pagesComponents/ClaimOwnershipSection";
 
 const LandingPage = () => {
   return (
@@ -19,6 +20,7 @@ const LandingPage = () => {
       <Web3SectionThree />
       <HowItWorks />
       <RoadmapSection />
+      <ClaimOwnershipSection />
     </div>
   );
 };

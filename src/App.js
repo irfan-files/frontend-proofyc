@@ -9,6 +9,9 @@ import OAuthCallback from "./pages/OAuthCallback.js";
 import Header from "./components/Header.js";
 import LandingPage from "./pages/LandingPage.js";
 import Footer from "./components/Footer.js";
+import OAuthLoginButton from "./pages/OAuthLoginButton.js";
+import PrivacyPolicy from "./pages/PrivacyPolicy.js";
+import ChannelDetail from "./pages/ChannelDetail.js";
 
 const queryClient = new QueryClient();
 
@@ -21,8 +24,11 @@ function App() {
           <div class="flex flex-col min-h-screen">
             <Routes>
               <Route path="/" element={<LandingPage />} />
+              <Route path="/login" element={OAuthLoginButton} />
               {/* // <Route path="/" element={<ConnectWalletButton />} /> */}
               <Route path="/oauth2callback" element={<OAuthCallback />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/channel-detail" element={<ChannelDetail />} />
             </Routes>
           </div>
 

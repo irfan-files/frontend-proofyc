@@ -1,5 +1,9 @@
 import React from "react";
 
+const handleLogin = () => {
+  // Redirect user to the backend to initiate Google OAuth2 flow
+  window.location.href = `${process.env.REACT_APP_BACKEND_URL}/auth`;
+};
 const MainContent = () => {
   return (
     <main className="p-12 bg-gray-900">
@@ -44,7 +48,10 @@ const MainContent = () => {
             channel as an onchain proof of ownership.
           </p>
           <div className="flex justify-end mt-8">
-            <button className="px-6 py-3 bg-lime-500 text-gray-900 rounded-full flex items-center space-x-2">
+            <button
+              onClick={handleLogin}
+              className="px-6 py-3 bg-lime-500 text-gray-900 rounded-full flex items-center space-x-2"
+            >
               <span>Explore</span>
               <i className="fas fa-arrow-right"></i>
             </button>

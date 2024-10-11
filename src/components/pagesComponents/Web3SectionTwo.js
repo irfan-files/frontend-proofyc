@@ -38,7 +38,8 @@ const Web3SectionTwo = () => {
         </div>
         <div className="flex-1 p-4">
           <img
-            src="https://placehold.co/600x400"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/fc1077a6818fd30c6fdda09fe3263be36300ee696e79468ba5d8895ed6e52cfb?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
+            class="object-contain w-full max-w-xl rounded-2xl aspect-[1.6]"
             alt="Person recording a video in a kitchen setting"
             className="w-full h-auto rounded-lg shadow-lg"
           />
