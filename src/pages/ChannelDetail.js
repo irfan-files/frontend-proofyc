@@ -1,4 +1,5 @@
 import React from "react";
+import ProfileCard from "../components/basicComponents/ProfileCard";
 
 const ChannelDetail = () => {
   return (
@@ -19,12 +20,7 @@ const ChannelDetail = () => {
         </header>
         <main class="flex overflow-hidden flex-wrap gap-10 px-8 py-12 w-full max-md:px-5 max-md:max-w-full">
           <div class="flex flex-col gap-12 items-center self-start bg-gray-100 rounded-lg min-w-[240px] w-[375px]">
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e38b37dd227f7b8f8d09c2dc48af19b450a263ea0869ba0cfcf526d7e59de23e?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
-              class="object-contain max-w-full rounded-3xl aspect-[0.78] w-[375px]"
-              alt="Channel visual representation"
-            />
+            <ProfileCard class="object-contain max-w-full rounded-3xl aspect-[0.78] w-[375px]" />
           </div>
           <div class="flex flex-col flex-1 shrink justify-center basis-0 min-w-[240px] max-md:max-w-full">
             <div class="flex flex-col w-full max-md:max-w-full">
