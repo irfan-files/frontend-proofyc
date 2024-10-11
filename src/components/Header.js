@@ -86,10 +86,6 @@ const Header = () => {
             handleConnect(coinbaseConnector);
             closeModal();
           }}
-          handleConnectMetaMask={() => {
-            handleConnect(metamaskConnector);
-            closeModal();
-          }}
           onClose={closeModal}
         />
       )}
