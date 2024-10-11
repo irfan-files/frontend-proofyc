@@ -58,8 +58,10 @@ const MainContent = () => {
             </div>
             <span className="text-lime-500">99+ Channel Minted</span>
           </div>
-          <p className="text-gray-400 mt-4">
+          <p className="text-gray-400 mt-4 text-pretty">
             the first platform that allows creators to mint their YouTube
+          </p>
+          <p className="text-gray-400 mt-4 text-pretty">
             channel as an onchain proof of ownership.
           </p>
           <div className="flex justify-end mt-8">

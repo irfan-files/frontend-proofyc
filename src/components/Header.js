@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useWallet } from "./UseWallet"; // Adjust the path to your custom hook
 import WalletModal from "./WalletModal"; // Adjust the path to the modal component
-import { useAccount, useEnsName } from 'wagmi';
+import { useAccount, useEnsName } from "wagmi";
 
 const Header = () => {
   const {
@@ -18,6 +18,8 @@ const Header = () => {
   // const { address, isConnected } = useAccount();
   const { data: ensName } = useEnsName({ address });
   const basename = ensName || address;
+
+  console.log("BASENAME", basename);
 
   // Modal control functions
   const openModal = () => setIsModalOpen(true);
@@ -56,7 +58,7 @@ const Header = () => {
         <Link to="/">
           <div className="text-yellow-500 text-xl font-bold">
             <div>CREATOR</div>
-            <div>BEAM</div>``
+            <div>BEAM</div>
           </div>
         </Link>
 
