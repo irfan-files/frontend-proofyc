@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useWallet } from "./UseWallet"; // Adjust the path to your custom hook
 import WalletModal from "./WalletModal"; // Adjust the path to the modal component
+import { useAccount, useEnsName } from 'wagmi';
 
 const Header = () => {
   const {
@@ -14,6 +15,10 @@ const Header = () => {
   } = useWallet();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // const { address, isConnected } = useAccount();
+  const { data: ensName } = useEnsName({ address });
+  const basename = ensName || address;
 
   // Modal control functions
   const openModal = () => setIsModalOpen(true);
@@ -31,7 +36,7 @@ const Header = () => {
           >
             Disconnect
           </button>
-          <p className="text-white font-semibold">{address}</p>
+          <p className="text-white font-semibold">{basename}</p>
         </>
       );
     }

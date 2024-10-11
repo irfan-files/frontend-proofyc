@@ -15,10 +15,10 @@ import ChannelDetail from "./pages/ChannelDetail.js";
 
 const queryClient = new QueryClient();
 
-function App() {
+function App({children}) {
   return (
     <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient}>{children}
         <Router class="static">
           <Header />
           <div class="flex flex-col min-h-screen">
