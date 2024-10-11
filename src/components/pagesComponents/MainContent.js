@@ -18,7 +18,10 @@ const MainContent = () => {
               sequence={[
                 "PROVE YOUR OWNERSHIP,", // Types 'One'
                 1000, // Waits 1s
-                "", // Deletes 'One' and types 'Two'
+                "PROVE YOUR YOUTUBE",
+                1000,
+                "PROVE YOUR ACCOUNTS",
+                1000, // Deletes 'One' and types 'Two'
                 // Types 'Three' without deleting 'Two'
                 () => {
                   console.log("Sequence completed");
@@ -67,7 +70,7 @@ const MainContent = () => {
           <div className="flex justify-end mt-8">
             <button
               onClick={handleLogin}
-              className="px-6 py-3 bg-lime-500 text-gray-900 rounded-full flex items-center space-x-2"
+              className="px-6 py-3 bg-lime-500 text-gray-900 rounded-full flex items-center space-x-2 hover:bg-lime-600 transition-colors duration-300"
             >
               <span>Mint Now</span>
               <i className="fas fa-arrow-right"></i>

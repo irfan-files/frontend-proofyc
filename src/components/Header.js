@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { useWallet } from "./UseWallet"; // Adjust the path to your custom hook
 import WalletModal from "./WalletModal"; // Adjust the path to the modal component
 import { Basenames } from "./GetBasename";
-import { useAccount  } from "wagmi";
-
+import { useAccount } from "wagmi";
+import { Avatar, Identity, Name, Address } from "@coinbase/onchainkit/identity";
+import { base } from "viem/chains";
+import { PictureComponent } from "./basicComponents/PictureComponent";
 
 const Header = () => {
   const {
@@ -18,34 +20,38 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const account = useAccount();
 
-
   // Modal control functions
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  console.log("Account:", account);
+
   // Render wallet button based on connection state
   const renderWalletButton = () => {
     if (isConnected) {
-      // const basename = Basenames(account.addresses?.[0]) 
+      // const basename = Basenames(account.addresses?.[0])
       return (
         <>
+          {/* <p className="text-white font-semibold">{basename}</p> */}
+          <div className="flex flex-row gap-2">
+            <Basenames address={account.addresses?.[0]} />
+          </div>
+          <div>
+            <PictureComponent address={account.addresses?.[0]} />
+          </div>
           <button
-            className="transition ease-in-out delay-150 px-4 py-2 bg-red-500 text-white font-semibold rounded-lg"
+            className="transition ease-in-out delay-150 px-4 py-2 bg-red-500 text-white font-semibold rounded-lg hover:-translate-y-1 hover:scale-110 hover:bg-red-700 duration-300"
             onClick={handleDisconnect}
           >
             Disconnect
           </button>
-          {/* <p className="text-white font-semibold">{basename}</p> */}
-          <div>
-                <Basenames address={account.addresses?.[0]} />
-              </div>
         </>
       );
     }
     return (
       <button
         type="button"
-        className="transition ease-in-out delay-150 px-4 py-2 bg-lime-400 text-slate-700 font-semibold rounded-lg"
+        className="transition ease-in-out delay-150 px-4 py-2 bg-lime-400 text-slate-700 font-semibold rounded-lg hover:-translate-y-1 hover:scale-110 hover:bg-lime-600 duration-300"
         onClick={openModal}
       >
         Connect Wallet
@@ -67,7 +73,6 @@ const Header = () => {
         {/* Right side - Wallet and Profile */}
         <div className="ml-auto flex items-center gap-4">
           {renderWalletButton()}
-          <div className="w-10 h-10 rounded-full bg-gray-800"></div>
         </div>
       </div>
 
