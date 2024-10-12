@@ -7,58 +7,62 @@ const handleLogin = () => {
 };
 const MainContent = () => {
   return (
-    <section className="flex overflow-hidden flex-col justify-center items-center px-20 py-64 text-7xl max-md:px-5 max-md:py-24 max-md:text-4xl gradient-bg-animate">
-      <div className="flex flex-col items-center w-full max-w-[1051px] max-md:max-w-full max-md:text-4xl">
-        <h1 className="flex flex-wrap gap-3 items-start font-medium tracking-tighter leading-snug text-center text-black max-md:max-w-full max-md:text-4xl">
+    <section class="flex overflow-hidden flex-col justify-center items-center px-20 py-52 bg-slate-200 max-md:px-5 max-md:py-24 gradient-bg-animate">
+      <div class="flex flex-col items-center max-w-full w-[828px]">
+        <h1 class="flex flex-wrap gap-3 items-start text-7xl font-medium tracking-tighter leading-snug text-center text-black max-md:max-w-full max-md:text-4xl">
           <span>Bring your</span>
           <img
             loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/6cac4af95591bf97737f0dd6cb037b8e936c2eafa48a6de1196b09d26278da36?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
-            alt=""
-            className="object-contain shrink-0 aspect-square w-[125px]"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/c4d42fd9c44ab0180932971da963a6e6d144e61b89e13806bb74d81a59b57564?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
+            class="object-contain shrink-0 aspect-square w-[125px]"
+            alt="Decorative icon"
           />
         </h1>
-        <div className="flex flex-wrap gap-3 justify-center items-center font-medium tracking-tighter leading-snug text-center text-black whitespace-nowrap max-md:max-w-full max-md:text-4xl">
-          <span className="self-stretch my-auto max-md:text-4xl">to</span>
-          <span className="gap-2.5 self-stretch px-3 py-0 my-auto text-black bg-lime-400 rounded-3xl min-w-[240px] max-md:text-4xl">
+        <h2 class="flex flex-wrap gap-3 justify-center items-center text-7xl font-medium tracking-tighter leading-snug text-center text-black whitespace-nowrap max-md:max-w-full max-md:text-4xl">
+          <span class="self-stretch my-auto max-md:text-4xl">to</span>
+          <span class="gap-2.5 self-stretch px-3 py-0 my-auto text-black bg-lime-400 rounded-3xl min-w-[240px] max-md:text-4xl">
             onchain
           </span>
-          <span className="self-stretch my-auto max-md:text-4xl">economy</span>
-        </div>
-        <h2 className="mt-8 text-4xl uppercase text-zinc-800">Build With</h2>
-        <div className="flex justify-center flex-wrap gap-6 items-center px-6 py-5 mt-3 text-4xl text-white whitespace-nowrap bg-blue-600 rounded-3xl max-md:px-1 ">
-          <img
-            loading="lazy"
-            src="https://i.postimg.cc/9MH7phWL/Vector.png"
-            alt="Partner logo"
-            className="object-contain self-stretch my-auto aspect-[3.98] min-w-[240px] w-[240px] "
-          />
-          <img
-            loading="lazy"
-            src="https://i.postimg.cc/XJKy1zq4/rec2-1.png"
-            alt="Partner logo"
-            className="object-contain self-stretch my-auto aspect-[3.98] min-w-[240px] w-[259px] "
-          />
-          <div className="flex gap-1.5 self-stretch my-auto font-bold  ">
+          <span class="self-stretch my-auto max-md:text-4xl">economy</span>
+        </h2>
+        <div class="flex flex-col items-center self-stretch mt-8 w-full max-md:max-w-full">
+          <h3 class="self-stretch text-4xl text-center uppercase text-zinc-800 max-md:max-w-full">
+            Build With
+          </h3>
+          <div class="flex flex-wrap gap-6 items-center px-6 py-5 mt-5 bg-blue-600 rounded-3xl max-md:px-5 max-md:max-w-full">
             <img
               loading="lazy"
-              src="https://i.postimg.cc/0NwSDQq6/Group-1321314603.png"
-              alt="YouTube logo"
-              className="object-contain self-stretch my-auto aspect-[3.98] min-w-[240px] w-[259px] "
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/317c8a1448bfcc0b6e924339c9f52c8268c6459c5b15afdcf963c33c900e60a1?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
+              class="object-contain self-stretch my-auto aspect-[3.98] min-w-[240px] w-[259px]"
+              alt="Partner logo 1"
+            />
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/f1e1f448d6fa72d2b71784b91b3c858a7b1125bd967973f3ea83e9d0abb79e48?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
+              class="object-contain shrink-0 self-stretch my-auto aspect-[3.76] w-[188px]"
+              alt="Partner logo 2"
+            />
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/9019c425f0374f0d988cf0f697b7d0ab97d685118c513b5c91ea3208c39e2cd7?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
+              class="object-contain self-stretch my-auto aspect-[4.72] min-w-[240px] w-[283px]"
+              alt="Partner logo 3"
             />
           </div>
-        </div>
-        <button onClick={handleLogin}>
-          <a className="flex gap-1 justify-center items-start px-8 py-4 mt-8 ml-5 text-lg font-bold tracking-normal leading-tight whitespace-nowrap bg-lime-400 rounded-lg text-neutral-800 max-md:px-5">
+          <a
+            onClick={handleLogin}
+            class="flex gap-1 justify-center items-start px-8 py-4 mt-5 text-lg font-bold tracking-normal leading-tight whitespace-nowrap rounded-lg bg-neutral-100 text-neutral-800 max-md:px-5"
+            role="button"
+          >
             Explore
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/9e5e9c5c0620248e555b8eddbcb9ba6639a5c9e465c2a04d1da4a12eeb2f3ea0?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
+              class="object-contain shrink-0 w-6 aspect-square"
               alt=""
-              className="object-contain shrink-0 w-6 aspect-square"
             />
           </a>
-        </button>
+        </div>
       </div>
     </section>
   );
