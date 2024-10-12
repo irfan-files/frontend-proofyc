@@ -2,50 +2,69 @@ import React from "react";
 
 const Web3SectionTwo = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#f0f4f8]">
-      <div className="flex flex-col md:flex-row items-center max-w-6xl mx-auto p-4">
-        <div className="flex-1 p-4">
-          <div className="border-l-4 border-blue-500 pl-4 mb-8">
-            <h2 className="text-2xl font-bold mb-2">
-              Creators Seeking Ownership in Web3
+    <section class="flex overflow-hidden flex-col gap-16 justify-center items-center py-24 bg-slate-200">
+      <div class="flex flex-col max-w-full w-[1280px]">
+        <header class="flex flex-col items-center w-full text-center">
+          <div class="flex flex-col max-w-full w-[768px]">
+            <h2 class="w-full text-4xl font-bold tracking-tighter leading-none text-gray-900 uppercase max-md:max-w-full">
+              Why Creator Hub?
             </h2>
-            <p>
-              Harness Web3 to gain true ownership of your content. Protect your
-              intellectual property and ensure fair compensation for your
-              creativity.
+            <p class="mt-5 text-xl leading-8 text-slate-600 max-md:max-w-full">
+              Our platform is designed for YouTube creators looking to grow
+              their presence beyond Web2. Whether you're just starting or
+              already have a loyal fanbase, Web3 offers new ways to interact,
+              monetize, and secure your brand.
             </p>
           </div>
-          <div className="border-l-4 border-blue-500 pl-4 mb-8">
-            <h2 className="text-2xl font-bold mb-2">
-              Creators Exploring New Revenue Opportunities
-            </h2>
-            <p>
-              Discover new ways to monetize your content in a decentralized
-              world. Engage your audience with exclusive experiences and build a
-              loyal community.
-            </p>
+        </header>
+        <div class="flex flex-wrap gap-10 items-center px-8 mt-16 w-full max-md:px-5 max-md:mt-10">
+          <div class="flex flex-col flex-1 shrink self-stretch my-auto basis-0 min-w-[240px] max-md:max-w-full">
+            <section class="flex flex-col justify-center py-4 pr-0 pl-6 w-full border-l-4 border-sky-600 border-solid border-l-sky-600 max-md:pl-5 max-md:max-w-full">
+              <div class="flex flex-col w-full max-md:max-w-full">
+                <h3 class="text-xl font-semibold text-gray-900 max-md:max-w-full">
+                  Creators Seeking Ownership in Web3
+                </h3>
+                <p class="mt-2 text-base leading-6 text-slate-600 max-md:max-w-full">
+                  Harness Web3 to gain true ownership of your content. Protect
+                  your intellectual property and ensure fair compensation for
+                  your creativity.
+                </p>
+              </div>
+            </section>
+            <section class="flex flex-col justify-center py-4 pr-0 pl-6 w-full border-l-4 border-gray-100 border-solid border-l-gray-100 max-md:pl-5 max-md:max-w-full">
+              <div class="flex flex-col w-full max-md:max-w-full">
+                <h3 class="text-xl font-semibold text-gray-900 max-md:max-w-full">
+                  Creators Exploring New Revenue Opportunities
+                </h3>
+                <p class="mt-2 text-base leading-6 text-slate-600 max-md:max-w-full">
+                  Discover new ways to monetize your content in a decentralized
+                  world. Engage your audience with exclusive experiences and
+                  build a loyal community.
+                </p>
+              </div>
+            </section>
+            <section class="flex flex-col justify-center py-4 pr-0 pl-6 w-full border-l-4 border-gray-100 border-solid border-l-gray-100 max-md:pl-5 max-md:max-w-full">
+              <div class="flex flex-col w-full max-md:max-w-full">
+                <h3 class="text-xl font-semibold text-gray-900 max-md:max-w-full">
+                  Crypto-Curious YouTubers Ready for Web3
+                </h3>
+                <p class="mt-2 text-base leading-6 text-slate-600 max-md:max-w-full">
+                  If you're a YouTuber exploring crypto, now's the time to dive
+                  into Web3. Leverage blockchain technology to enhance your
+                  content and connect with your audience like never before.
+                </p>
+              </div>
+            </section>
           </div>
-          <div className="border-l-4 border-blue-500 pl-4">
-            <h2 className="text-2xl font-bold mb-2">
-              Crypto-Curious YouTubers Ready for Web3
-            </h2>
-            <p>
-              If you're a YouTuber exploring crypto, now's the time to dive into
-              Web3. Leverage blockchain technology to enhance your content and
-              connect with your audience like never before.
-            </p>
-          </div>
-        </div>
-        <div className="flex-1 p-4">
           <img
+            loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/fc1077a6818fd30c6fdda09fe3263be36300ee696e79468ba5d8895ed6e52cfb?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
-            class="object-contain w-full max-w-xl rounded-2xl aspect-[1.6]"
-            alt="Person recording a video in a kitchen setting"
-            className="w-full h-auto rounded-lg shadow-lg"
+            alt="Creator Hub illustration"
+            class="object-contain flex-1 shrink self-stretch my-auto w-full rounded-2xl aspect-[1.6] basis-0 min-w-[240px] max-md:max-w-full"
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
