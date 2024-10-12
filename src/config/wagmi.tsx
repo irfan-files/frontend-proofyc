@@ -1,10 +1,11 @@
 import { http, cookieStorage, createConfig, createStorage } from 'wagmi'
 import { base, baseSepolia } from 'wagmi/chains'
-import { coinbaseWallet } from 'wagmi/connectors'
+import { coinbaseWallet, injected } from 'wagmi/connectors'
 
 export const config = createConfig({
-  chains: [base, baseSepolia],
+  chains: [baseSepolia],
     connectors: [
+      injected(),
       coinbaseWallet({
         appName: 'youtube-proof',
         preference: 'all', 
@@ -12,7 +13,7 @@ export const config = createConfig({
     ],
     ssr: true,
     transports: {
-      [base.id]: http('https://base-mainnet.g.alchemy.com/v2/FGE7dw4IyA3IcrGDZG-7bpDWpclk61H4'),
+      // [base.id]: http('https://base-mainnet.g.alchemy.com/v2/FGE7dw4IyA3IcrGDZG-7bpDWpclk61H4'),
       [baseSepolia.id]: http('https://base-sepolia.g.alchemy.com/v2/FGE7dw4IyA3IcrGDZG-7bpDWpclk61H4'),
     },
 })

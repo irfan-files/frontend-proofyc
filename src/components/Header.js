@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useWallet } from "./UseWallet"; // Adjust the path to your custom hook
 import WalletModal from "./WalletModal"; // Adjust the path to the modal component
-import { Basenames } from "./GetBasename";
+import { Basenames } from "./GetBasenameHeader";
 import { useAccount } from "wagmi";
-import { Avatar, Identity, Name, Address } from "@coinbase/onchainkit/identity";
-import { base } from "viem/chains";
 import { PictureComponent } from "./basicComponents/PictureComponent";
 
 const Header = () => {
@@ -15,6 +13,7 @@ const Header = () => {
     handleConnect,
     handleDisconnect,
     coinbaseConnector,
+    metamaskConnector
   } = useWallet();
 
   const [isModalOpen, setIsModalOpen] = useState(false);

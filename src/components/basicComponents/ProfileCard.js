@@ -7,6 +7,7 @@ const ProfileCard = ({
   videoViews,
   country,
   accountCreated,
+  imageURL,
 }) => {
   return (
     <div className="w-[375px] h-[573px] bg-black rounded-[14px] shadow flex-col justify-start items-start inline-flex font-coinbase animate-float">
@@ -16,7 +17,8 @@ const ProfileCard = ({
             <div className="h-[249px] justify-center items-center inline-flex">
               <img
                 className="w-[375px] h-[249px] relative"
-                src="https://via.placeholder.com/375x249"
+                // src="https://via.placeholder.com/375x249"
+                src={imageURL}
                 alt="Profile"
               />
             </div>
@@ -26,7 +28,7 @@ const ProfileCard = ({
                   <div className="w-24 h-24 rounded-full shadow border-4 border-white justify-center items-center inline-flex">
                     <img
                       className="w-24 h-24 rounded-full"
-                      src="https://via.placeholder.com/150"
+                      src={imageURL}
                       alt="Avatar"
                     />
                   </div>
@@ -36,14 +38,14 @@ const ProfileCard = ({
                     {channelName}
                   </div>
                   <div className="text-center mt-1 text-base font-medium text-gray-300">
-                    channel name
+                    Channel Name
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="flex-col justify-start items-center gap-[18px] flex">
+        <div className="flex-col mt-5 justify-start items-center gap-[18px] flex">
           <div className="w-[280px] h-[52px] justify-center items-center gap-6 inline-flex">
             <div className="w-32 flex-col justify-start items-center gap-1 inline-flex">
               <div className="self-stretch text-center text-[#eaecf0] text-xs font-medium capitalize leading-tight">
@@ -73,7 +75,6 @@ const ProfileCard = ({
               </div>
               <div className="justify-start items-center gap-2 inline-flex">
                 <div className="self-stretch justify-start items-center gap-2 flex">
-                  <div className="w-5 h-5 relative"></div>
                   <div className="text-[#bfff00] text-lg font-semibold leading-7">
                     {country}
                   </div>

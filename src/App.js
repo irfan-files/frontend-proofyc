@@ -20,7 +20,7 @@ function App({ children }) {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        {children}
+        
         <Router class="static">
           <Header />
           <div class="flex flex-col min-h-screen">

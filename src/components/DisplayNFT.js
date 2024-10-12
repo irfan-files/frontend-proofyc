@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import abi from "../abiMintingAccount.json"; // Adjust the path if necessary
 
-const DisplayNFT = ({ tokenId }) => {
+const DisplayNFT = ({ tokenId, imageURL }) => {
   const [metadata, setMetadata] = useState(null);
   const [error, setError] = useState(null);
 
