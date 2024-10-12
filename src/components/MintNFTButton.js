@@ -14,7 +14,7 @@ const MintNFTButton = ({ proofData, tokenURI }) => {
   const [txHash, setTxHash] = useState(null);
   const account = useAccount();
   const proofDataStringify = JSON.stringify(proofData);
-  console.log(proofDataStringify);
+  
   const handleSwitchChain = async () => {
     try {
       if (account.chainId !== 84532) {

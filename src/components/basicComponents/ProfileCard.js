@@ -4,8 +4,8 @@ const ProfileCard = ({
   channelName,
   channelId,
   channelSubs,
+  videoCount,
   videoViews,
-  country,
   accountCreated,
   imageURL,
 }) => {
@@ -59,11 +59,11 @@ const ProfileCard = ({
             </div>
             <div className="w-32 flex-col justify-start items-center gap-1 inline-flex">
               <div className="self-stretch text-center text-[#eaecf0] text-xs font-medium capitalize leading-tight">
-                Video Views
+                Total Video
               </div>
               <div className="justify-start items-center gap-2 inline-flex">
                 <div className="text-center text-[#bfff00] text-lg font-semibold leading-7">
-                  {videoViews}
+                  {videoCount}
                 </div>
               </div>
             </div>
@@ -71,12 +71,12 @@ const ProfileCard = ({
           <div className="w-[280px] h-[52px] justify-center items-center gap-6 inline-flex">
             <div className="w-32 flex-col justify-start items-center gap-1 inline-flex">
               <div className="self-stretch text-center text-[#eaecf0] text-xs font-medium capitalize leading-tight">
-                Country
+                Total Views
               </div>
               <div className="justify-start items-center gap-2 inline-flex">
                 <div className="self-stretch justify-start items-center gap-2 flex">
                   <div className="text-[#bfff00] text-lg font-semibold leading-7">
-                    {country}
+                    {videoViews}
                   </div>
                 </div>
               </div>

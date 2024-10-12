@@ -5,6 +5,7 @@ import DisplayNFT from "../components/DisplayNFT";
 import ProfileCard from "../components/basicComponents/ProfileCard";
 import { Basenames } from "../components/GetBasenameMint";
 import { useAccount } from "wagmi";
+import { ContractUnknownEventPayload } from "ethers";
 
 const OAuthCallback = () => {
   const [channelInfo, setChannelInfo] = useState(null);
@@ -16,9 +17,14 @@ const OAuthCallback = () => {
   const location = useLocation();
   const { isConnected } = useAccount();
   const account = useAccount();
+  const[channelSubs, setChannelSubs] = useState(null);
+  const [channelViews, setChannelViews] = useState(null);
+  const [channelVideo, setChannelVideos] = useState(null);
+  const [channelPublishedAt, setChannelPublishedAt] = useState(null);
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
+    console.log(location.search);
     const accessToken = queryParams.get("access_token");
     const channelId = queryParams.get("channel_id");
     const tokenURI = queryParams.get("token_uri");
@@ -36,6 +42,14 @@ const OAuthCallback = () => {
     const proofOwner = queryParams.get("owner");
     const proofTimestamps = queryParams.get("timestamp_s");
     const proofSignature = queryParams.get("signature");
+    
+    // Get data for nft description
+    console.log("All query params:", Object.fromEntries(queryParams));
+    
+    const channelSubs = queryParams.get("channel_subscriber");
+    const channelView = queryParams.get("channel_view_count");
+    const channelVideo = queryParams.get("channel_total_video");
+    const channelPublishedAt = queryParams.get("channel_published_at");
 
     const claimInfo = {
       context: proofContext,
@@ -58,19 +72,38 @@ const OAuthCallback = () => {
       signedClaim: signedClaim,
     };
 
+    const date = new Date(channelPublishedAt);
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    const formattedDate = date.toLocaleDateString('en-US', options);
+
     if (
       accessToken &&
       channelId &&
       tokenURI &&
       channelTitle &&
+      proofContext &&
+      proofParameters &&
+      proofProvider &&
+      proofEpoch &&
       proofIdentifier &&
-      proofSend &&
-      imageURL
+      proofOwner &&
+      proofTimestamps &&
+      proofSignature &&
+      imageURL &&
+      channelSubs &&
+      channelVideo &&
+      channelView &&
+      formattedDate
+
     ) {
       setChannelInfo({ channelId, channelTitle, proofIdentifier });
       setTokenURI(tokenURI);
       setProofDataObject(proofSend);
       setImageURL(imageURL);
+      setChannelSubs(channelSubs);
+      setChannelVideos(channelVideo);
+      setChannelViews(channelView);
+      setChannelPublishedAt(formattedDate);
     } else {
       setError("Required query parameters are missing.");
     }
@@ -105,10 +138,10 @@ const OAuthCallback = () => {
               <ProfileCard
                 channelName={channelInfo.channelTitle}
                 channelId={channelInfo.channelId}
-                channelSubs="1.6M" // Dummy data, replace with actual if available
-                videoViews="212M" // Dummy data, replace with actual if available
-                country="Indonesia" // Dummy data, replace with actual if available
-                accountCreated="Nov 29, 2019" // Dummy data, replace with actual if available
+                channelSubs={channelSubs} // Dummy data, replace with actual if available
+                videoCount={channelVideo} // Dummy data, replace with actual if available
+                videoViews={channelViews} // Dummy data, replace with actual if available
+                accountCreated={channelPublishedAt} // Dummy data, replace with actual if available
                 imageURL={imageURL} // Pass the imageURL here
               />
             </div>
