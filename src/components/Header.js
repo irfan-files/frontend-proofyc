@@ -44,7 +44,6 @@ const Header = () => {
           >
             Disconnect
           </button>
-          <p className="text-white font-semibold">{basename}</p>
         </>
       );
     }
