@@ -6,12 +6,13 @@ const Footer = () => {
     <footer class="flex flex-col gap-16 items-center px-0 py-12 bg-gray-900">
       <div class="flex flex-wrap justify-between items-center px-8 max-w-full w-[1280px] max-md:px-5">
         <div class="flex flex-col items-start self-stretch my-auto w-40">
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/d4e76ca8d7cd4b1c2b7f6f010eb4f466e4dd71c5be81a304441e9ddfbf5c3d76?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
-            class="object-contain max-w-full aspect-[4.44] w-[142px]"
-            alt="Creator Beam Logo"
-          />
+          <Link to="/">
+            <img
+              src="https://i.postimg.cc/3R2bSY2N/logo-creatorhub.png"
+              alt="Creator Beam"
+              className="h-12 w-auto"
+            />
+          </Link>
         </div>
         <nav class="flex flex-wrap flex-1 shrink gap-8 justify-center items-center self-stretch my-auto basis-0 min-h-[80px] min-w-[240px] max-md:max-w-full">
           <a

@@ -14,7 +14,7 @@ const OAuthCallback = () => {
   const [mintedTokenId, setMintedTokenId] = useState(null);
   const [imageURL, setImageURL] = useState(null);
   const location = useLocation();
-  const {isConnected} = useAccount();
+  const { isConnected } = useAccount();
   const account = useAccount();
 
   useEffect(() => {
@@ -83,7 +83,7 @@ const OAuthCallback = () => {
   if (!channelInfo) {
     return <div>Loading...</div>; // Loading state until channelInfo is available
   }
-  if (isConnected){
+  if (isConnected) {
     return (
       <div>
         <section class="flex flex-col px-16 pt-14 pb-28 max-md:px-5 max-md:pb-24">
@@ -118,7 +118,7 @@ const OAuthCallback = () => {
                 {}
                 <div className="flex flex-row gap-2">
                   <Basenames address={account.addresses?.[0]} />
-                {/* </h2> */}
+                  {/* </h2> */}
                 </div>
                 <hr class="mt-5 w-full h-px bg-gray-300 min-h-[1px] max-md:max-w-full" />
                 <div class="flex flex-col mt-5 w-80 max-w-full text-base">
@@ -155,7 +155,10 @@ const OAuthCallback = () => {
                 </div>
               </div>
               {!mintedTokenId ? (
-                <MintNFTButton proofData={proofDataObject} tokenURI={tokenURI} />
+                <MintNFTButton
+                  proofData={proofDataObject}
+                  tokenURI={tokenURI}
+                />
               ) : (
                 <DisplayNFT tokenId={mintedTokenId} imageURL={imageURL} />
               )}

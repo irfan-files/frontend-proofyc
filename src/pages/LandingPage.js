@@ -1,6 +1,5 @@
 import React from "react";
 import MainContent from "../components/pagesComponents/MainContent";
-import ImageSection from "../components/pagesComponents/ImageSection";
 import Web3Section from "../components/pagesComponents/Web3Section";
 import Web3SectionOne from "../components/pagesComponents/Web3SectionOne";
 import Web3SectionTwo from "../components/pagesComponents/Web3SectionTwo";
@@ -13,7 +12,6 @@ const LandingPage = () => {
   return (
     <div>
       <MainContent />
-      <ImageSection />
       <Web3Section />
       <Web3SectionTwo />
       <Web3SectionOne />

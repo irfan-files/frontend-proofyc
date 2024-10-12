@@ -13,7 +13,7 @@ const Header = () => {
     handleConnect,
     handleDisconnect,
     coinbaseConnector,
-    metamaskConnector
+    metamaskConnector,
   } = useWallet();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -63,10 +63,11 @@ const Header = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Left side - Logo */}
         <Link to="/">
-          <div className="text-yellow-500 text-xl font-bold">
-            <div>CREATOR</div>
-            <div>BEAM</div>
-          </div>
+          <img
+            src="https://i.postimg.cc/3R2bSY2N/logo-creatorhub.png"
+            alt="Creator Beam"
+            className="h-12 w-auto"
+          />
         </Link>
 
         {/* Right side - Wallet and Profile */}

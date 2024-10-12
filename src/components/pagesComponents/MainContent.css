@@ -1,0 +1,44 @@
+@keyframes rotateGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-bg-animate {
+  background: linear-gradient(270deg, #b2ccff, #ffffff, #c0ff00);
+  background-size: 200% 200%;
+  animation: rotateGradient 10s ease infinite;
+}
+
+.scroll-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #1d4ed8; /* Set the background color if needed */
+}
+
+.scroll-content {
+  display: flex;
+  animation: scrollHorizontal 20s linear infinite;
+}
+
+.scroll-item {
+  flex-shrink: 0;
+  width: auto;
+  height: 100px; /* Adjust the height as needed */
+}
+
+@keyframes scrollHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
