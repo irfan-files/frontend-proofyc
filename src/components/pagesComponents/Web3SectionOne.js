@@ -58,7 +58,7 @@ const Web3SectionOne = () => {
         <img
           loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c2a609784b17fc44cb189bf47da2ee600523c59c9dcf0ab909d99bd46cacf33?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
-          class="object-contain aspect-[0.75] min-w-[240px] w-[480px] max-md:max-w-full floating-image"
+          class="object-contain aspect-[0.75] min-w-[240px] w-[480px] max-md:max-w-full"
           alt="Illustration of Web3 digital future concept"
         />
         <article class="flex flex-col flex-1 shrink basis-0 min-w-[240px]">
