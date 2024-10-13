@@ -115,7 +115,9 @@ function PrivacyPolicy() {
       </h2>
       <p className="mb-6">
         If you have any questions about this Privacy Policy, please contact us
-        at: <strong className="text-indigo-600">privacy@yourwebsite.com</strong>
+        at: 
+        <strong className="text-indigo-600">akbarwijayaok@gmail.com</strong>
+        <strong className="text-indigo-600">irfanimogiri@gmail.com</strong>
       </p>
 
       <div className="text-center mt-8">
