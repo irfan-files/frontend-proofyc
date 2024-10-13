@@ -13,6 +13,7 @@ import OAuthLoginButton from "./pages/OAuthLoginButton.js";
 import PrivacyPolicy from "./pages/PrivacyPolicy.js";
 import ChannelDetail from "./pages/ChannelDetail.js";
 import ShowNFT from "./pages/ShowNFT.js";
+import TermsOfService from "./pages/TermsOfService.js";
 
 const queryClient = new QueryClient();
 
@@ -20,7 +21,6 @@ function App({ children }) {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        
         <Router class="static">
           <Header />
           <div class="flex flex-col min-h-screen">
@@ -29,9 +29,11 @@ function App({ children }) {
               <Route path="/login" element={OAuthLoginButton} />
               {/* // <Route path="/" element={<ConnectWalletButton />} /> */}
               <Route path="/oauth2callback" element={<OAuthCallback />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
               <Route path="/channel-detail" element={<ChannelDetail />} />
               <Route path="/show-nft" element={<ShowNFT />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsOfService />} />
             </Routes>
           </div>
 
