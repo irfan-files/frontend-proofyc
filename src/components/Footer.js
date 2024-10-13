@@ -79,7 +79,7 @@ const Footer = () => {
           </p>
           <nav class="flex gap-4 items-start h-full text-gray-500 whitespace-nowrap">
             <a href="#">
-              <Link to="/terms-of-service">Terms of Service</Link>
+              <Link to="/terms">Terms of Service</Link>
             </a>
             <a href="#">
               <Link to="/privacy-policy">Privacy Policy</Link>
