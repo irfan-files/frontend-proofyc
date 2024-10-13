@@ -61,6 +61,7 @@ const MintNFTButton = ({ proofData, tokenURI }) => {
       >
         {isPending ? "Preparing..." : isConfirming ? "Minting..." : "Mint NFT"}
       </button>
+      {hash && <div>Success Minting!</div>}
       {hash && <div>Transaction Hash: {hash}</div>}
       {error && (
         <div>
