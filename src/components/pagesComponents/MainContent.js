@@ -32,15 +32,15 @@ const MainContent = () => {
           <div class="flex flex-wrap gap-6 items-center px-6 py-5 mt-5 bg-blue-600 rounded-3xl max-md:px-5 max-md:max-w-full">
             <img
               loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/317c8a1448bfcc0b6e924339c9f52c8268c6459c5b15afdcf963c33c900e60a1?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
-              class="object-contain self-stretch my-auto aspect-[3.98] min-w-[240px] w-[259px]"
-              alt="Partner logo 1"
-            />
-            <img
-              loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/f1e1f448d6fa72d2b71784b91b3c858a7b1125bd967973f3ea83e9d0abb79e48?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
               class="object-contain shrink-0 self-stretch my-auto aspect-[3.76] w-[188px]"
               alt="Partner logo 2"
+            />
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/317c8a1448bfcc0b6e924339c9f52c8268c6459c5b15afdcf963c33c900e60a1?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
+              class="object-contain self-stretch my-auto aspect-[3.98] min-w-[240px] w-[259px]"
+              alt="Partner logo 1"
             />
             <img
               loading="lazy"

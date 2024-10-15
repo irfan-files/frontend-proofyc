@@ -7,7 +7,8 @@ const RoadmapSection = () => {
       <section className="flex overflow-hidden flex-wrap gap-10 items-start px-16 py-28 bg-animate-gradient max-md:px-5 max-md:py-24">
         <header className="flex flex-col items-center text-6xl font-bold tracking-tighter leading-10 text-black uppercase min-w-[240px] max-md:text-4xl max-md:leading-8">
           <h2 className="max-md:text-4xl max-md:leading-8">
-            our <br /> roadmap
+            <div>our</div>
+            <br /> roadmap
           </h2>
         </header>
         <div className="flex flex-wrap gap-2.5 p-3.5 bg-blue-600 rounded-3xl min-w-[240px] max-md:max-w-full">

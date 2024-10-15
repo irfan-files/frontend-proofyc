@@ -42,7 +42,7 @@ const Web3SectionOne = () => {
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/fe640f8269ebb210919c24808318b9fb70c9b886f0a217cb681d203ad12fb319?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
-              class="object-contain w-14 aspect-square floating-image"
+              class="object-contain w-14 aspect-square "
               alt="Icon representing Web3 Integration"
             />
             <div class="flex flex-col mt-5 w-full">
@@ -58,7 +58,7 @@ const Web3SectionOne = () => {
         <img
           loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c2a609784b17fc44cb189bf47da2ee600523c59c9dcf0ab909d99bd46cacf33?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
-          class="object-contain aspect-[0.75] min-w-[240px] w-[480px] max-md:max-w-full"
+          class="object-contain aspect-[0.75] min-w-[240px] w-[480px] max-md:max-w-full floating-image"
           alt="Illustration of Web3 digital future concept"
         />
         <article class="flex flex-col flex-1 shrink basis-0 min-w-[240px]">
