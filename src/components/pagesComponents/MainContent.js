@@ -7,17 +7,18 @@ const handleLogin = () => {
 };
 const MainContent = () => {
   return (
-    <section class="flex overflow-hidden flex-col justify-center items-center px-20 py-52 bg-slate-200 max-md:px-5 max-md:py-24 gradient-bg-animate">
+    <section class="flex overflow-hidden flex-col justify-center items-center px-20 py-52 bg-slate-200 max-md:px-5 max-md:py-24 gradient-bg-animate min-h-fit">
       <div class="flex flex-col items-center max-w-full w-[828px]">
-        <h1 class="flex flex-wrap gap-3 items-start text-7xl font-medium tracking-tighter leading-snug text-center text-black max-md:max-w-full max-md:text-4xl">
+        <h1 class="flex flex-wrap gap-3 items-center text-7xl font-medium tracking-tighter leading-snug text-center text-black max-md:flex-nowrap max-md:justify-center max-md:text-4xl">
           <span>Bring your</span>
           <img
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/c4d42fd9c44ab0180932971da963a6e6d144e61b89e13806bb74d81a59b57564?placeholderIfAbsent=true&apiKey=c73c9da61887485d94ad6c5d97385c22"
-            class="object-contain shrink-0 aspect-square w-[125px]"
+            class="object-contain shrink-0 aspect-square w-[125px] max-md:w-[80px]"
             alt="Decorative icon"
           />
         </h1>
+
         <h2 class="flex flex-wrap gap-3 justify-center items-center text-7xl font-medium tracking-tighter leading-snug text-center text-black whitespace-nowrap max-md:max-w-full max-md:text-4xl">
           <span class="self-stretch my-auto max-md:text-4xl">to</span>
           <span class="gap-2.5 self-stretch px-3 py-0 my-auto text-black bg-lime-400 rounded-3xl min-w-[240px] max-md:text-4xl">
