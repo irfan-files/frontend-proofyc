@@ -5,7 +5,6 @@ import DisplayNFT from "../components/DisplayNFT";
 import ProfileCard from "../components/basicComponents/ProfileCard";
 import { Basenames } from "../components/GetBasenameMint";
 import { useAccount } from "wagmi";
-import { ContractUnknownEventPayload } from "ethers";
 
 const OAuthCallback = () => {
   const [channelInfo, setChannelInfo] = useState(null);
@@ -24,7 +23,6 @@ const OAuthCallback = () => {
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
-    console.log(location.search);
     const accessToken = queryParams.get("access_token");
     const channelId = queryParams.get("channel_id");
     const tokenURI = queryParams.get("token_uri");
@@ -33,44 +31,15 @@ const OAuthCallback = () => {
     // Get image url
     const imageURL = queryParams.get("image_url");
 
-    // Get data from proof
-    const proofContext = queryParams.get("context");
-    const proofParameters = queryParams.get("parameters");
-    const proofProvider = queryParams.get("provider");
-    const proofEpoch = queryParams.get("epoch");
-    const proofIdentifier = queryParams.get("identifier");
-    const proofOwner = queryParams.get("owner");
-    const proofTimestamps = queryParams.get("timestamp_s");
-    const proofSignature = queryParams.get("signature");
+    // Proof Reclaim
+    const proofData = queryParams.get("proofData");
+    const proofSend = JSON.parse(decodeURIComponent(proofData));
     
-    // Get data for nft description
-    console.log("All query params:", Object.fromEntries(queryParams));
-    
+    // Information for badge card
     const channelSubs = queryParams.get("channel_subscriber");
     const channelView = queryParams.get("channel_view_count");
     const channelVideo = queryParams.get("channel_total_video");
     const channelPublishedAt = queryParams.get("channel_published_at");
-
-    const claimInfo = {
-      context: proofContext,
-      parameters: proofParameters,
-      provider: proofProvider,
-    };
-
-    const signedClaim = {
-      claim: {
-        epoch: proofEpoch,
-        identifier: proofIdentifier,
-        owner: proofOwner,
-        timestampS: proofTimestamps,
-      },
-      signatures: [proofSignature],
-    };
-
-    const proofSend = {
-      claimInfo: claimInfo,
-      signedClaim: signedClaim,
-    };
 
     const date = new Date(channelPublishedAt);
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -81,14 +50,6 @@ const OAuthCallback = () => {
       channelId &&
       tokenURI &&
       channelTitle &&
-      proofContext &&
-      proofParameters &&
-      proofProvider &&
-      proofEpoch &&
-      proofIdentifier &&
-      proofOwner &&
-      proofTimestamps &&
-      proofSignature &&
       imageURL &&
       channelSubs &&
       channelVideo &&
@@ -96,7 +57,7 @@ const OAuthCallback = () => {
       formattedDate
 
     ) {
-      setChannelInfo({ channelId, channelTitle, proofIdentifier });
+      setChannelInfo({ channelId, channelTitle });
       setTokenURI(tokenURI);
       setProofDataObject(proofSend);
       setImageURL(imageURL);
@@ -114,7 +75,7 @@ const OAuthCallback = () => {
   }
 
   if (!channelInfo) {
-    return <div>Loading...</div>; // Loading state until channelInfo is available
+    return <div>Loading...</div>;
   }
   if (isConnected) {
     return (
@@ -127,8 +88,8 @@ const OAuthCallback = () => {
                   Channel Detail
                 </h1>
                 <p class="mt-2 text-base max-md:max-w-full">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse varius enim in eros.
+                  Review your channel status here! <br></br>
+                  The attribute bellow is just an information for creator, not include into attribute NFT for transparency! 
                 </p>
               </div>
             </div>
@@ -138,11 +99,11 @@ const OAuthCallback = () => {
               <ProfileCard
                 channelName={channelInfo.channelTitle}
                 channelId={channelInfo.channelId}
-                channelSubs={channelSubs} // Dummy data, replace with actual if available
-                videoCount={channelVideo} // Dummy data, replace with actual if available
-                videoViews={channelViews} // Dummy data, replace with actual if available
-                accountCreated={channelPublishedAt} // Dummy data, replace with actual if available
-                imageURL={imageURL} // Pass the imageURL here
+                channelSubs={channelSubs}
+                videoCount={channelVideo}
+                videoViews={channelViews}
+                accountCreated={channelPublishedAt}
+                imageURL={imageURL}
               />
             </div>
             <div class="flex flex-col flex-1 shrink justify-center basis-0 min-w-[240px] max-md:max-w-full">

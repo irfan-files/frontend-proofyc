@@ -7,27 +7,36 @@ import {
 } from "wagmi";
 import abi from "../abiMintingAccount.json";
 import { useState } from "react";
+import { baseSepolia } from "viem/chains";
+import { switchChain } from '@wagmi/core'
 
 const MintNFTButton = ({ proofData, tokenURI }) => {
   const [minting, setMinting] = useState(false);
   const [errorState, setError] = useState(null);
   const [txHash, setTxHash] = useState(null);
   const account = useAccount();
-  const proofDataStringify = JSON.stringify(proofData);
   
   const handleSwitchChain = async () => {
-    try {
-      if (account.chainId !== 84532) {
-        await window.ethereum.request({
-          method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x14a34" }],
-        });
+      try {
+        // Wagmi switch chain - for smart wallet
+        try {
+          if (account.chainId !== baseSepolia.id) {
+            await switchChain({ chainId: baseSepolia.id });
+          }
+        } catch {
+          // Ether switch chain - for coinbase wallet
+          if (account.chainId !== 84532) {
+                  await window.ethereum.request({
+                    method: "wallet_switchEthereumChain",
+                    params: [{ chainId: "0x14a34" }],
+                  });
+                }
+        }
+      } catch (error) {
+        console.error("Failed to switch chain:", error);
+        setError("Failed to switch chain. Please try again.");
       }
-    } catch (error) {
-      console.error("Failed to connect wallet:", error);
-      setError("Failed to connect wallet. Please try again.");
-    }
-  };
+    };
 
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
@@ -42,10 +51,11 @@ const MintNFTButton = ({ proofData, tokenURI }) => {
 
     try {
       await writeContract({
-        address: '0x961adFEf2B27D5204FF1c59Ad87BA5c4287b10dD',
+        address: '0xE0c53297A1c66B957049b2c189a41B8145E886F0',
         abi: abi,
         functionName: "mintAccount",
         args: [proofData, tokenURI],
+        chainId: baseSepolia.id
       });
     } catch (err) {
       console.error("Failed to mint NFT:", err);
@@ -62,7 +72,14 @@ const MintNFTButton = ({ proofData, tokenURI }) => {
         {isPending ? "Preparing..." : isConfirming ? "Minting..." : "Mint NFT"}
       </button>
       {hash && <div>Success Minting!</div>}
-      {hash && <div>Transaction Hash: {hash}</div>}
+      {hash && (
+        <div>
+          Transaction Hash:{" "}
+          <a href={`https://sepolia.basescan.org/tx/${hash}`} class="text-lime-400">
+            {`https://sepolia.basescan.org/tx/${hash}`}
+          </a>
+        </div>
+      )}
       {error && (
         <div>
           Error:{" "}
