@@ -6,7 +6,7 @@ export const config = createConfig({
   chains: [baseSepolia],
     connectors: [
       coinbaseWallet({
-        appName: 'youtube-proof',
+        appName: 'Creator Hub',
         preference: 'all', 
       }),
     ],
