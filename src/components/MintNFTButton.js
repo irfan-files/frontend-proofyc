@@ -51,7 +51,7 @@ const MintNFTButton = ({ proofData, tokenURI }) => {
 
     try {
       await writeContract({
-        address: '0x961adFEf2B27D5204FF1c59Ad87BA5c4287b10dD',
+        address: '0x66c32B94492903037B398025b5d9F1F5c1BFB7Af',
         abi: abi,
         functionName: "mintAccount",
         args: [proofData, tokenURI],
